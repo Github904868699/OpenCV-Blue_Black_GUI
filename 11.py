@@ -176,11 +176,13 @@ class MainWindow(QtWidgets.QWidget):
              self.black_sliders[name] = s
         cp.addWidget(black_group)
         # 掩膜按钮
-        self.mask_btn = QtWidgets.QPushButton("蓝色掩膜"); self.mask_btn.clicked.connect(self.toggle_mask)
-        cp.addWidget(self.mask_btn); cp.addStretch(1)
+        self.mask_btn = QtWidgets.QPushButton("蓝色掩膜")
+        self.mask_btn.clicked.connect(lambda: self.toggle_mask('blue'))
+        cp.addWidget(self.mask_btn)
         self.mask_btn_black = QtWidgets.QPushButton("黑色掩膜")
         self.mask_btn_black.clicked.connect(lambda: self.toggle_mask('black'))
         cp.addWidget(self.mask_btn_black)
+        cp.addStretch(1)
 
 
         # 初始化摄像头 & 计时器
